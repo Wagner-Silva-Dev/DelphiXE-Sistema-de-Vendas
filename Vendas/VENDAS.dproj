@@ -1,0 +1,165 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{AB457714-7867-417F-9A35-D578888515E7}</ProjectGuid>
+			<ProjectVersion>12.2</ProjectVersion>
+			<MainSource>VENDAS.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Platform>Win32</Platform>
+			<AppType>Application</AppType>
+			<FrameworkType>VCL</FrameworkType>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_UsePackage>vclimg;vcl;vclx;dbrtl;Rave90VCL;bdertl;VclSmp;rtl;svnui;svn;TeeUI;TeeDB;Tee;vclactnband;vcldb;vcldbx;vcltouch;xmlrtl;dsnap;dsnapcon;vclib;ibxpress;adortl;IndyCore;IndySystem;IndyProtocols;inet;intrawebdb_110_150;Intraweb_110_150;vclie;websnap;webdsnap;inetdb;inetdbbde;inetdbxpress;soaprtl;vclribbon;dbexpress;DbxCommonDriver;DataSnapIndy10ServerTransport;DataSnapProviderClient;DbxClientDriver;DataSnapClient;dbxcds;DataSnapServer;AzureCloud;DBXInterBaseDriver;DBXMySQLDriver;DBXFirebirdDriver;DBXSybaseASEDriver;DBXSybaseASADriver;DBXOracleDriver;DBXMSSQLDriver;DBXInformixDriver;DBXDb2Driver;CodeSiteExpressVcl;TCFLib150;QR5RunDXE;dacvcl150;dac150;crcontrols150;mydacvcl150;mydac150;mysqlmon150;unidacvcl150;unidac150;PacoteCJV;dclExcelExportPackXE;ExcelExportPackXE;frx15;frxADO15;frxBDE15;frxcs15;frxDB15;frxDBX15;frxe15;frxIBX15;frxTee15;fs15;fsADO15;fsBDE15;fsDB15;fsIBX15;fsTee15;dclOffice2k;kbmMemRunDXEPro;ACBr_Comum;ACBr_OpenSSL;ACBr_Diversos;ACBr_Serial;ACBr_Convenio115;ACBr_LFD;ACBr_EDI;ACBr_PAF;ACBr_SEF2;ACBr_Sintegra;ACBr_SPED;ACBr_SPEDImportar;ACBR_DeSTDA;ACBr_Ponto;ACBr_LCDPR;ACBr_ADRCST;ACBr_TCP;ACBr_MTER;ACBrBaaS;ACBr_PIXCD;ACBr_Integrador;ACBr_Boleto;ACBr_PagFor;ACBr_DebitoAutomatico;ACBr_NFe;ACBr_NFCeECFVirtual;ACBr_CTe;ACBr_NFSe;ACBr_NFSeX;ACBr_NFCom;ACBr_MDFe;ACBr_GNRE;ACBre_Social;ACBr_Reinf;ACBr_SAT;ACBr_SATECFVirtual;ACBr_SATWS;ACBr_BlocoX;ACBr_PAFNFCe;ACBr_BPe;ACBr_DCe;ACBr_ANe;ACBr_CIOT;ACBr_ONE;ACBr_NF3e;ACBr_GTIN;ACBr_TEFD;ACBr_OFX;ACBr_OpenDelivery;ACBr_NFeDanfeESCPOS;ACBr_SATExtratoESCPOS;ACBr_BPeDabpeESCPOS;ACBr_NF3eDANF3eESCPOS;HsBarcode2DRun;spdNFE_DXE;spdNFeGov_DXE;spdGovBase_DXE;spdGov_DXE</DCC_UsePackage>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_DcuOutput>.\$(Config)\$(Platform)</DCC_DcuOutput>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_ExeOutput>.\$(Config)\$(Platform)</DCC_ExeOutput>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_ExeOutput>bin\$(Config)\$(Platform)</DCC_ExeOutput>
+			<DCC_DcuOutput>DCU\$(Config)\$(Platform)</DCC_DcuOutput>
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="VENDAS.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="Src\Model\Conexao\Model.conexao.DM.pas">
+				<Form>ModelConexaoDM</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="Src\View\Principal.pas">
+				<Form>ViewPrincipal</Form>
+			</DCCReference>
+			<DCCReference Include="Src\View\Herancas\View.Herancas.Buscar.pas">
+				<Form>ViewHerancasBuscar</Form>
+			</DCCReference>
+			<DCCReference Include="Src\View\SubGrupos\View.SubGrupos.Buscar.pas">
+				<Form>ViewSubGruposBuscar</Form>
+			</DCCReference>
+			<DCCReference Include="Src\View\Herancas\View.Herancas.Cadastrar.pas">
+				<Form>ViewHerencasCadastrar</Form>
+			</DCCReference>
+			<DCCReference Include="Src\View\SubGrupos\View.SubGrupos.Cadastrar.pas">
+				<Form>ViewSubGruposCadastrar</Form>
+			</DCCReference>
+			<DCCReference Include="Src\Model\Pessoas\Model.Pessoas.DM.pas">
+				<Form>ModelPessoasDM</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="Src\View\Pessoas\View.Pessoas.Buscar.pas">
+				<Form>ViewPessoasBuscar</Form>
+			</DCCReference>
+			<DCCReference Include="Src\Exceptions\Exceptions.FieldName.pas"/>
+			<DCCReference Include="Src\RTTI\RTTI.FieldName.pas"/>
+			<DCCReference Include="Src\Utils\Utils.pas"/>
+			<DCCReference Include="Src\View\Pessoas\View.Pessoas.Cadastrar.pas">
+				<Form>ViewHerencasCadastrar1</Form>
+			</DCCReference>
+			<DCCReference Include="Src\Model\SubGrupos\Model.SubGrupos.DM.pas">
+				<Form>ModelSubGruposDM</Form>
+			</DCCReference>
+			<DCCReference Include="Src\Model\Cidades\Model.Cidades.DM.pas">
+				<Form>ModelCidadesDM</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="Src\View\Cidades\View.Cidades.Buscar.pas">
+				<Form>ViewCidadesBuscar</Form>
+			</DCCReference>
+			<DCCReference Include="Src\View\Cidades\View.Cidades.Cadastrar.pas">
+				<Form>ViewHerencasCidadesCadastrar</Form>
+			</DCCReference>
+			<DCCReference Include="Src\Model\Produtos\Model.Produtos.DM.pas">
+				<Form>ModelProdutosDM</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="Src\View\Produtos\View.Produtos.Buscar.pas">
+				<Form>ViewProdutosBuscar</Form>
+			</DCCReference>
+			<DCCReference Include="Src\View\Produtos\View.Produtos.Cadastrar.pas">
+				<Form>ViewProdutosCadastrar</Form>
+			</DCCReference>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\8.0\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\8.0\UserTools.proj"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1046</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclofficexp150.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+					<Source>
+						<Source Name="MainSource">VENDAS.dpr</Source>
+					</Source>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+				<ModelSupport>False</ModelSupport>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>
