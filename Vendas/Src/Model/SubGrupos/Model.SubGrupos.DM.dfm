@@ -43,14 +43,9 @@ object ModelSubGruposDM: TModelSubGruposDM
         DataType = ftUnknown
         Name = 'IDSubGrupos'
       end>
-    object QLookupnome_uf: TStringField
-      FieldName = 'nome_uf'
+    object QLookupNome: TStringField
+      FieldName = 'Nome'
       Size = 50
-    end
-    object QLookupuf: TStringField
-      FieldName = 'uf'
-      FixedChar = True
-      Size = 2
     end
   end
 end

@@ -72,9 +72,7 @@ end;
 
 procedure TViewHerencasCidadesCadastrar.BtnGravarClick(Sender: TObject);
 begin
-  FUltID := MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger;
-  self.close;
-  Self.ModalResult := mrOk;
+
     try
       {MyDataSource1.DataSet.Post;
      O TDComboBox aparece a mensagem que sempre esta vazio por isso usei o de baixo}
@@ -91,9 +89,9 @@ begin
       end;}
     end;
 
-  //Antes das funções
-  //if Trim(EdtNome.Text) = '' then  begin  EdtNome.SetFocus;  raise Exception.Create('Preencha o campo nome');  end; //if Trim(CboxUF.Text) = '' then  begin   CboxUF.SetFocus;    //raise Exception.Create('Preencha o campo UF');  //end; //MyDataSource1.DataSet.FieldByName('uf').AsString := CboxUF.Text; // Para ele dar o insert na UF que escolher na lista    //MyDataSource1.DataSet.Post;
-
+  FUltID := MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger;
+  self.close;
+  Self.ModalResult := mrOk;
     inherited;
 end;
 

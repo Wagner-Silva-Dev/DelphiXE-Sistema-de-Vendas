@@ -51,9 +51,9 @@ procedure TViewHerencasCadastrar.BtnCancelarClick(Sender: TObject);
 begin
   if (MyDataSource1.DataSet.State in [dsInsert, dsEdit]) then
   begin
-    MyDataSource1.Dataset.Cancel;
+    MyDataSource1.DataSet.Cancel;
   end;
-    Self.Close;
+//    Self.Close;
     Self.ModalResult := mrCancel;
 end;
 

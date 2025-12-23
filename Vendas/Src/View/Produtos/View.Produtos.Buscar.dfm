@@ -14,13 +14,10 @@ inherited ViewProdutosBuscar: TViewProdutosBuscar
     ExplicitWidth = 780
     inherited Label1: TLabel
       Width = 776
-      ExplicitTop = -6
-      ExplicitWidth = 776
-      ExplicitHeight = 57
     end
     inherited EditBuscar: TEdit
-      Width = 650
-      ExplicitWidth = 650
+      Width = 622
+      ExplicitWidth = 622
     end
   end
   inherited Pnrodape: TPanel
@@ -37,8 +34,6 @@ inherited ViewProdutosBuscar: TViewProdutosBuscar
         'Nome(F2)'
         'C'#243'digo de Barras(F3)'
         'SubGrupo(F4)')
-      ExplicitLeft = -2
-      ExplicitTop = 6
       ExplicitWidth = 374
     end
     inherited BtnCadastrar: TBitBtn

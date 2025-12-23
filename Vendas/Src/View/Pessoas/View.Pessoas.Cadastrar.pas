@@ -156,7 +156,7 @@ begin
   ModelPessoasDM.CadastrarGet(inherited IDRegistroAlterar);
 
  if Assigned(DataSource1.DataSet) then
-begin
+  begin
     if DataSource1.DataSet.IsEmpty then
       DataSource1.DataSet.Append
     else
@@ -164,7 +164,7 @@ begin
       DataSource1.DataSet.Edit;
       EDTcod_ufExit(EDTcod_uf);
     end;
-end;
+  end;
 
   Self.ConfigurarTipoJuridico;
 
@@ -179,9 +179,7 @@ end;
 
 procedure TViewPessoasCadastrar.BtnGravarClick(Sender: TObject);
 begin
-  FUltID := MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger;
-  self.close;
-  Self.ModalResult := mrOk;
+
   try
     DataSource1.DataSet.Post;
   except
@@ -189,6 +187,9 @@ begin
       TUtils.TratarExceptionsFieldName(Self, E);
   end;
 
+  FUltID := MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger;
+  self.close;
+  Self.ModalResult := mrOk;
   inherited;
 end;
 

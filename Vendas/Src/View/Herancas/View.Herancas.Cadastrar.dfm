@@ -1,6 +1,7 @@
 object ViewHerencasCadastrar: TViewHerencasCadastrar
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMaximize]
   Caption = 'ViewHerencasCadastrar'
   ClientHeight = 400
   ClientWidth = 800

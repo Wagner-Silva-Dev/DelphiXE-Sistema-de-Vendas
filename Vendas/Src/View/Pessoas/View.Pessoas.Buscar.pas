@@ -29,14 +29,13 @@ type
   TViewPessoasBuscar = class(TViewHerancasBuscar)
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure Excluir1Click(Sender: TObject);
   private
     FUltID: integer;
-    FIDSelecionado: Integer;
   public
     procedure BuscarDados; override;
     procedure ChamarTelaCadastrar(const AId: Integer = 0); override;
     property UltID: integer read FUltID write FUltID;
-    property IDSelecionado: Integer read FIDSelecionado write FIDSelecionado;
   end;
 
 var
@@ -84,6 +83,13 @@ begin
   finally
     LViewPessoasCadastrar.Free;
   end;
+end;
+
+procedure TViewPessoasBuscar.Excluir1Click(Sender: TObject);
+begin
+  if(ModelPessoasDM.QPessoasBuscaID.AsInteger = 1) then
+    raise Exception.Create('O produto com o código 1 nâo pode ser excluído');
+  inherited;
 end;
 
 procedure TViewPessoasBuscar.FormCreate(Sender: TObject);

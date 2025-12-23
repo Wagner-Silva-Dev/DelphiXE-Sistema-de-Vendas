@@ -102,6 +102,13 @@
 			<DCCReference Include="Src\View\Produtos\View.Produtos.Cadastrar.pas">
 				<Form>ViewProdutosCadastrar</Form>
 			</DCCReference>
+			<DCCReference Include="Src\View\Vendas\View.Vendas.pas">
+				<Form>ViewVendas</Form>
+			</DCCReference>
+			<DCCReference Include="Src\Model\Vendas\Model.Vendas.DM.pas">
+				<Form>ModelVendasDM</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

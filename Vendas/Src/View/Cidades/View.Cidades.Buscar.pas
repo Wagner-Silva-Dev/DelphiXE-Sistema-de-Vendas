@@ -28,19 +28,15 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure BtnCadastrarClick(Sender: TObject);
-    procedure BtnAlterarClick(Sender: TObject);
-    procedure BtnUtilizarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     FUltID: integer;
-    FIDSelecionado: Integer;
 
      protected
     procedure BuscarDados; override;
     procedure ChamarTelaCadastrar(const AId: Integer = 0); override;
   public
     property UltID: integer read FUltID write FUltID;
-    property IDSelecionado: Integer read FIDSelecionado write FIDSelecionado;
   end;
 
 var
@@ -54,27 +50,12 @@ implementation
     View.Cidades.Cadastrar;
 
 
-procedure TViewCidadesBuscar.BtnAlterarClick(Sender: TObject);
-begin
-  inherited;
-    FUltID := (MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger);
-    Self.ChamarTelaCadastrar(MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger);
-end;
-
 procedure TViewCidadesBuscar.BtnCadastrarClick(Sender: TObject);
 begin
   inherited;
   FUltID := 0;
     if (not MyDataSource1.DataSet.IsEmpty) then
       FUltID := MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger;
-end;
-
-procedure TViewCidadesBuscar.BtnUtilizarClick(Sender: TObject);
-begin
-  inherited;
-  FIDSelecionado := MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger;
-  Self.Close;
-  Self.ModalResult := mrOK;
 end;
 
 procedure TViewCidadesBuscar.BuscarDados;
@@ -132,7 +113,7 @@ end;
 procedure TViewCidadesBuscar.FormShow(Sender: TObject);
 begin
   inherited;
-  FIDSelecionado := 0;
+//  FIDSelecionado := 0;
 end;
 
 end.

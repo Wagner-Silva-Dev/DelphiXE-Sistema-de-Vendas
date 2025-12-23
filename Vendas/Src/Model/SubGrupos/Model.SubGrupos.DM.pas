@@ -17,12 +17,11 @@ type
     QSubGruposCadastro: TMyQuery;
     QSubgruposBusca: TMyQuery;
     QLookup: TMyQuery;
-    QLookupnome_uf: TStringField;
-    QLookupuf: TStringField;
     QSubgruposBuscaID: TIntegerField;
     QSubgruposBuscaNome: TStringField;
     QSubGruposCadastroID: TIntegerField;
     QSubGruposCadastroNome: TStringField;
+    QLookupNome: TStringField;
     procedure QSubGruposCadastroBeforePost(DataSet: TDataSet);
 
   private

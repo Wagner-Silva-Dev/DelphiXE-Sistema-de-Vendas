@@ -64,8 +64,8 @@ type
 {essas variaveis  abaixo foram pq como é uma tela de cadastro e eu fiz com diversos tipos de
 campos de pesquisa não apenas 'ID' o que me fez fazer em cada tela, depois tenho fazer um função
 para automatizar}
-//    FUltID: integer;
-//    FIDSelecionado: Integer;
+    FUltID: integer;
+    FIDSelecionado: Integer;
 
   protected
     procedure BuscarDados; virtual;
@@ -73,8 +73,8 @@ para automatizar}
 
 
   public
-//    property UltID: integer read FUltID write FUltID;
-//    property IDSelecionado: Integer read FIDSelecionado write FIDSelecionado;
+    property UltID: integer read FUltID write FUltID;
+    property IDSelecionado: Integer read FIDSelecionado write FIDSelecionado;
   end;
 
 var
@@ -90,12 +90,25 @@ begin
 end;
 
 procedure TViewHerancasBuscar.BtnAlterarClick(Sender: TObject);
+  var
+  Campo: TField;
+  ValorID: Integer;
 begin
   if (MyDataSource1.DataSet.IsEmpty) then
     raise Exception.Create('Selecione um registro');
 
-//  FUltID := (MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger);
-//  Self.ChamarTelaCadastrar(MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger);
+  // tenta pegar cod_uf
+  Campo := MyDataSource1.DataSet.FindField('cod_uf');
+
+  if Campo <> nil then
+    ValorID := Campo.AsInteger
+  else
+    ValorID := MyDataSource1.DataSet.FieldByName('ID').AsInteger;
+
+  // agora aplica nos dois lugares
+  FUltID := ValorID;
+  Self.ChamarTelaCadastrar(ValorID);
+
 end;
 
 procedure TViewHerancasBuscar.BtnCadastrarClick(Sender: TObject);
@@ -113,13 +126,23 @@ begin
 end;
 
 procedure TViewHerancasBuscar.BtnUtilizarClick(Sender: TObject);
+var
+Campo : TField;
 begin
   if (MyDataSource1.DataSet.IsEmpty) then
     raise Exception.Create('Selecione um registro');
 
-//  FIDSelecionado := MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger;
-//  Self.Close;
-//  Self.ModalResult := mrOK;
+  // tenta pegar cod_uf
+  Campo := MyDataSource1.DataSet.FindField('cod_uf');
+
+  if Campo <> nil then
+    FIDSelecionado := Campo.AsInteger
+  else
+    FIDSelecionado := MyDataSource1.DataSet.FieldByName('ID').AsInteger;
+
+  Self.Close;
+  Self.ModalResult := mrOK;
+
 end;
 
 procedure TViewHerancasBuscar.EditBuscarChange(Sender: TObject);
@@ -128,12 +151,26 @@ begin
 end;
 
 procedure TViewHerancasBuscar.BuscarDados;
+
+var
+  Campo: TField;
+  NomeCampo: string;
 Begin
   LbTotal.Caption := 'Registros Localizados: 000000';
   if (MyDataSource1.DataSet.IsEmpty) then
     Exit;
 
   LbTotal.Caption := 'Registros Localizados: ' + FormatFloat('000000', MyDataSource1.DataSet.RecordCount);
+
+  Campo := MyDataSource1.DataSet.FindField('cod_uf');
+
+  if Campo <> nil then
+    NomeCampo := 'cod_uf'
+  else
+    NomeCampo := 'ID';
+
+  if FUltID > 0 then
+    MyDataSource1.DataSet.Locate(NomeCampo, FUltID, []);
 
 //  if (FUltID > 0) then
 //    MyDataSource1.DataSet.Locate('cod_uf', FUltID, []);
@@ -229,7 +266,7 @@ end;
 procedure TViewHerancasBuscar.FormShow(Sender: TObject);
 begin
   Self.ModalResult := mrCancel;
-//  FIDSelecionado := 0;
+  FIDSelecionado := 0;
   EditBuscar.SetFocus;
 end;
 

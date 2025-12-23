@@ -44,7 +44,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
     object EditBuscar: TEdit
       Left = 16
       Top = 19
-      Width = 788
+      Width = 780
       Height = 21
       Anchors = [akLeft, akTop, akRight]
       TabOrder = 0
@@ -143,6 +143,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       ParentDoubleBuffered = False
       TabOrder = 1
       OnClick = BtnCadastrarClick
+      ExplicitTop = 10
     end
     object BtnUtilizar: TBitBtn
       AlignWithMargins = True
@@ -411,12 +412,12 @@ object ViewHerancasBuscar: TViewHerancasBuscar
     end
   end
   object MyDataSource1: TMyDataSource
-    Left = 28
-    Top = 120
+    Left = 36
+    Top = 80
   end
   object PopupMenu1: TPopupMenu
     Left = 104
-    Top = 120
+    Top = 96
     object Atualizar1: TMenuItem
       Bitmap.Data = {
         F6060000424DF606000000000000360000002800000018000000180000000100

@@ -4,6 +4,7 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 826
+  ExplicitHeight = 565
   PixelsPerInch = 96
   TextHeight = 13
   inherited Pntopo: TPanel
@@ -13,8 +14,8 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
       Width = 806
     end
     inherited EditBuscar: TEdit
-      Width = 712
-      ExplicitWidth = 712
+      Width = 692
+      ExplicitWidth = 692
     end
   end
   inherited Pnrodape: TPanel
@@ -33,6 +34,7 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
     inherited BtnCadastrar: TBitBtn
       Left = 405
       ExplicitLeft = 405
+      ExplicitTop = 8
     end
     inherited BtnUtilizar: TBitBtn
       Left = 607
@@ -80,16 +82,19 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
         item
           Expanded = False
           FieldName = 'fornecedor'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'cod_uf'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'nome_uf'
+          Width = 64
           Visible = True
         end
         item
@@ -101,16 +106,19 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
         item
           Expanded = False
           FieldName = 'endereco'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'telefone'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'celular'
+          Width = 64
           Visible = True
         end>
     end
@@ -119,6 +127,7 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
       ExplicitWidth = 810
       inherited LbTotal: TLabel
         Left = 654
+        Height = 19
         ExplicitLeft = 654
       end
     end

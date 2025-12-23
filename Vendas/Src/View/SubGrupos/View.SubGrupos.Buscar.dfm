@@ -7,9 +7,9 @@ inherited ViewSubGruposBuscar: TViewSubGruposBuscar
   inherited Pntopo: TPanel
     inherited EditBuscar: TEdit
       Left = -1
-      Width = 734
+      Width = 726
       ExplicitLeft = -1
-      ExplicitWidth = 734
+      ExplicitWidth = 726
     end
   end
   inherited Pnrodape: TPanel
@@ -19,6 +19,9 @@ inherited ViewSubGruposBuscar: TViewSubGruposBuscar
       Items.Strings = (
         'C'#243'digo(F1)'
         'Nome (F2)')
+    end
+    inherited BtnUtilizar: TBitBtn
+      ExplicitTop = 8
     end
   end
   inherited PnGrid: TPanel
@@ -35,11 +38,6 @@ inherited ViewSubGruposBuscar: TViewSubGruposBuscar
           FieldName = 'Nome'
           Visible = True
         end>
-    end
-    inherited PnTotal: TPanel
-      inherited LbTotal: TLabel
-        Height = 19
-      end
     end
   end
   inherited MyDataSource1: TMyDataSource

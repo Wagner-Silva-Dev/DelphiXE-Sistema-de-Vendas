@@ -31,13 +31,12 @@ type
     procedure BtnAlterarClick(Sender: TObject);
   private
     FUltID: integer;
-    FIDSelecionado: Integer;
      protected
     procedure BuscarDados; override;
     procedure ChamarTelaCadastrar(const AId: Integer = 0); override;
   public
     property UltID: integer read FUltID write FUltID;
-    property IDSelecionado: Integer read FIDSelecionado write FIDSelecionado;
+
 
   end;
 

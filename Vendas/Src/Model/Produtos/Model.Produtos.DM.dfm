@@ -6,11 +6,15 @@ object ModelProdutosDM: TModelProdutosDM
     Connection = ModelConexaoDM.MyConnection1
     SQL.Strings = (
       'SELECT * FROM produtosof p')
+    AfterInsert = QProdutosCadastroAfterInsert
+    BeforePost = QProdutosCadastroBeforePost
     Left = 48
     Top = 32
     object QProdutosCadastroID: TIntegerField
+      AutoGenerateValue = arDefault
       DisplayLabel = 'C'#243'digo'
       FieldName = 'ID'
+      ReadOnly = True
     end
     object QProdutosCadastroID_Subgrupo: TIntegerField
       DisplayLabel = 'C'#243'd.SubGrupo'
@@ -24,17 +28,17 @@ object ModelProdutosDM: TModelProdutosDM
     object QProdutosCadastropreco_custo: TFloatField
       DisplayLabel = 'Pre'#231'o de Custo'
       FieldName = 'preco_custo'
-      EditFormat = ',,0.00'
+      DisplayFormat = ',,0.00'
     end
     object QProdutosCadastroporcentagem: TFloatField
       DisplayLabel = 'Porcentagem'
       FieldName = 'porcentagem'
-      EditFormat = ',,0.00'
+      DisplayFormat = ',,0.00'
     end
     object QProdutosCadastropreco_venda: TFloatField
       DisplayLabel = 'Pre'#231'o de Venda'
       FieldName = 'preco_venda'
-      EditFormat = ',,0.00'
+      DisplayFormat = ',,0.00'
     end
     object QProdutosCadastrounidade: TStringField
       DisplayLabel = 'Unidade'
@@ -121,18 +125,28 @@ object ModelProdutosDM: TModelProdutosDM
   object QLookup: TMyQuery
     Connection = ModelConexaoDM.MyConnection1
     SQL.Strings = (
-      'SELECT p.Nome FROM produtosof p'
-      'where (p.ID = :IDProdutos)')
+      'SELECT p.ID, p.nome, p.preco_venda, p.unidade FROM produtosof p'
+      'where (p.codigo_barras = :CodBarras)'
+      '  LIMIT 1;')
     Left = 104
     Top = 112
     ParamData = <
       item
         DataType = ftUnknown
-        Name = 'IDProdutos'
+        Name = 'CodBarras'
       end>
     object QLookupNome: TStringField
       FieldName = 'Nome'
       Size = 100
+    end
+    object QLookupID: TIntegerField
+      FieldName = 'ID'
+    end
+    object QLookuppreco_venda: TFloatField
+      FieldName = 'preco_venda'
+    end
+    object QLookupunidade: TStringField
+      FieldName = 'unidade'
     end
   end
 end

@@ -52,6 +52,7 @@ type
     procedure Pessoas1Click(Sender: TObject);
     procedure Subgruposdeprodutos1Click(Sender: TObject);
     procedure Produtos1Click(Sender: TObject);
+    procedure Vendas1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -69,7 +70,8 @@ uses
   View.Cidades.Buscar,
   View.Pessoas.Buscar,
   View.SubGrupos.Buscar,
-  View.Produtos.Buscar;
+  View.Produtos.Buscar,
+  View.Vendas;
 
 
 procedure TViewPrincipal.FormCreate(Sender: TObject);
@@ -123,6 +125,7 @@ begin
   end;
 end;
 
+
 procedure TViewPrincipal.Produtos1Click(Sender: TObject);
 begin
     ViewProdutosBuscar:= TViewProdutosBuscar.Create(nil);
@@ -130,6 +133,16 @@ begin
     ViewProdutosBuscar.ShowModal;
   finally
     FreeAndNil(ViewProdutosBuscar);
+  end;
+end;
+
+procedure TViewPrincipal.Vendas1Click(Sender: TObject);
+begin
+    ViewVendas:= TViewVendas.Create(nil);
+  try
+    ViewVendas.ShowModal;
+  finally
+    FreeAndNil(ViewVendas);
   end;
 end;
 

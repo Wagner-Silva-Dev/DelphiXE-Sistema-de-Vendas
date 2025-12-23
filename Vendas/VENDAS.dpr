@@ -20,7 +20,9 @@ uses
   View.Cidades.Cadastrar in 'Src\View\Cidades\View.Cidades.Cadastrar.pas' {ViewHerencasCidadesCadastrar},
   Model.Produtos.DM in 'Src\Model\Produtos\Model.Produtos.DM.pas' {ModelProdutosDM: TDataModule},
   View.Produtos.Buscar in 'Src\View\Produtos\View.Produtos.Buscar.pas' {ViewProdutosBuscar},
-  View.Produtos.Cadastrar in 'Src\View\Produtos\View.Produtos.Cadastrar.pas' {ViewProdutosCadastrar};
+  View.Produtos.Cadastrar in 'Src\View\Produtos\View.Produtos.Cadastrar.pas' {ViewProdutosCadastrar},
+  View.Vendas in 'Src\View\Vendas\View.Vendas.pas' {ViewVendas},
+  Model.Vendas.DM in 'Src\Model\Vendas\Model.Vendas.DM.pas' {ModelVendasDM: TDataModule};
 
 {$R *.res}
 
@@ -30,6 +32,5 @@ begin
   Application.Title := 'Vendas';
   Application.CreateForm(TModelConexaoDM, ModelConexaoDM);
   Application.CreateForm(TViewPrincipal, ViewPrincipal);
-  Application.CreateForm(TViewProdutosCadastrar, ViewProdutosCadastrar);
   Application.Run;
 end.

@@ -607,6 +607,7 @@ object ViewPrincipal: TViewPrincipal
           BCB7B7B7F5F5F5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFF3F3F3C9C9C9C9C9C9C8C8C8C7C7C7F3F3F3FFFFFFFFFFFF}
         Caption = 'Vendas'
+        OnClick = Vendas1Click
       end
     end
     object Financeiro1: TMenuItem

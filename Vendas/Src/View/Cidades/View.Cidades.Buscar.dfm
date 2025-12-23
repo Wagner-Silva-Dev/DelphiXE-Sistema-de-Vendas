@@ -5,11 +5,17 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
   PixelsPerInch = 96
   TextHeight = 13
   inherited Pntopo: TPanel
+    inherited Label1: TLabel
+      ExplicitLeft = -1
+      ExplicitTop = -2
+      ExplicitWidth = 813
+      ExplicitHeight = 57
+    end
     inherited EditBuscar: TEdit
       Left = -1
-      Width = 742
+      Width = 726
       ExplicitLeft = -1
-      ExplicitWidth = 742
+      ExplicitWidth = 726
     end
   end
   inherited Pnrodape: TPanel
@@ -20,12 +26,6 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
         'C'#243'digo(F1)'
         'Nome (F2)'
         'UF(F3)')
-    end
-    inherited BtnCadastrar: TBitBtn
-      ExplicitTop = 10
-    end
-    inherited BtnUtilizar: TBitBtn
-      ExplicitTop = 10
     end
   end
   inherited PnGrid: TPanel
@@ -57,6 +57,5 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
   end
   inherited PopupMenu1: TPopupMenu
     Left = 128
-    Top = 96
   end
 end

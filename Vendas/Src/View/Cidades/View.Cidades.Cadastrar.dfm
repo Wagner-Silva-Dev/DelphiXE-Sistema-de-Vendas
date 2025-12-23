@@ -18,8 +18,7 @@ inherited ViewHerencasCidadesCadastrar: TViewHerencasCidadesCadastrar
     end
     inherited BtnGravar: TBitBtn
       Left = 491
-      ExplicitLeft = 485
-      ExplicitTop = 6
+      ExplicitLeft = 491
     end
   end
   inherited PnDados: TPanel

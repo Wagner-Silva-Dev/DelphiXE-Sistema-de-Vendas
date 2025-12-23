@@ -11,6 +11,7 @@ inherited ViewPessoasCadastrar: TViewPessoasCadastrar
     inherited BtnCancelar: TBitBtn
       Left = 783
       ExplicitLeft = 783
+      ExplicitTop = 1
     end
     inherited BtnGravar: TBitBtn
       Left = 683
