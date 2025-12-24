@@ -24,7 +24,8 @@ uses
   MyAccess,
   Utils,
   Model.Vendas.DM,
-  Model.Produtos.DM;
+  Model.Produtos.DM,
+  Model.conexao.DM;
 
 type
   TViewVendas = class(TForm)
@@ -79,6 +80,7 @@ type
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure DSVendasItensListarDataChange(Sender: TObject; Field: TField);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     FVDM : TModelVendasDM;
     procedure ProcessarF2;
@@ -104,19 +106,30 @@ implementation
 
 {$R *.dfm}
 
-procedure TViewVendas.DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
-  DataCol: Integer; Column: TColumn; State: TGridDrawState);
-begin
-  if(not Odd(DBGrid1.DataSource.DataSet.RecNo))then
-    DBGrid1.Canvas.Brush.Color := $00D6D6D6;
 
-  DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
-end;
 
 procedure TViewVendas.EDTLancamentoKeyPress(Sender: TObject; var Key: Char);
 begin
   if(Key = #13)then
     Self.ProcessarEnterNoEdtLancamento;
+end;
+
+procedure TViewVendas.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  if FVDM.QVendasCadastro.State in dsEditModes then
+  begin
+    if Application.MessageBox('Existe uma venda em andamento. Deseja sair sem salvar?',
+      'Confirmação', MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) <> IDYES
+    then
+      CanClose := False;
+      Exit;
+  end;
+
+  if ModelConexaoDM.MyConnection1.InTransaction then
+    ModelConexaoDM.MyConnection1.Rollback;
+
+  FVDM.QVendasCadastro.Cancel;
+  CanClose := True;
 end;
 
 procedure TViewVendas.FormCreate(Sender: TObject);
@@ -164,6 +177,45 @@ begin
       Self.ProcessarDelete;
      end;
   end;
+end;
+
+
+
+procedure TViewVendas.ProcessarF2;
+begin
+    if (FVDM.QVendasCadastro.State in dsEditModes) then
+      Exit;
+
+    if not ModelConexaoDM.MyConnection1.InTransaction then
+      ModelConexaoDM.MyConnection1.StartTransaction;
+
+    Self.LimparTela;
+    FVDM.QVendasCadastro.Append;
+
+    lblTopo.Caption := 'Inserindo produtos na venda';
+    EDTLancamento.SetFocus;
+end;
+
+procedure TViewVendas.ProcessarF3;
+begin
+  if not(FVDM.QVendasCadastro.State in dsEditModes) then
+    Exit;
+
+  FVDM.QVendasCadastro.Post;
+
+  if ModelConexaoDM.MyConnection1.InTransaction then
+    ModelConexaoDM.MyConnection1.Commit;
+
+  Self.LimparTela;
+  EDTLancamento.SetFocus;
+end;
+
+procedure TViewVendas.ProcessarESC;
+begin
+  if(FVDM.QVendasCadastro.State in dsEditModes) then
+    Self.CancelarVenda
+  else
+    Self.Close;
 end;
 
 procedure TViewVendas.ProcessarDelete;
@@ -241,7 +293,7 @@ begin
   FVDM.VendasItensListar(FVDM.QVendasCadastroID.AsInteger, FVDM.QVendasItensCadastrarID.AsInteger);
 
   Self.TotalizarVenda;
-  
+
   EDTLancamento.Clear;
   EDTLancamento.SetFocus;
 end;
@@ -257,31 +309,7 @@ begin
   FVDM.QVendasCadastroTotal_Acrescimos.AsFloat := FVDM.QVendasTotalizarTotalAcrescimo.AsFloat;
   FVDM.QVendasCadastroTotal_Liquido.AsFloat := FVDM.QVendasTotalizarTotalLiquido.AsFloat;
 //  FVDM.QVendasCadastro.Post;
-  FVDM.QVendasCadastro.Edit;
-end;
-  
-procedure TViewVendas.ProcessarF2;
-begin
-//  if (ModelVendasDM.QVendasCadastro in [dsInsert, dsEdit]) then
-    if (FVDM.QVendasCadastro.State in dsEditModes) then
-      Exit;
-
-    Self.LimparTela;
-    FVDM.QVendasCadastro.Append;
-
-    lblTopo.Caption := 'Inserindo produtos na venda';
-    EDTLancamento.SetFocus;
-end;
-
-procedure TViewVendas.ProcessarF3;
-begin
-  if not(FVDM.QVendasCadastro.State in dsEditModes) then
-    Exit;
-
-  FVDM.QVendasCadastro.Post;
-  Self.LimparTela;
-
-  EDTLancamento.SetFocus;
+//  FVDM.QVendasCadastro.Edit;
 end;
 
 procedure TViewVendas.LimparTela;
@@ -298,13 +326,6 @@ begin
   IMGFoto.Picture.LoadFromFile(TUtils.GetPastaImg + 'Add-Imagem.png');
 end;
 
-procedure TViewVendas.ProcessarESC;
-begin
-  if(FVDM.QVendasCadastro.State in dsEditModes) then
-    Self.CancelarVenda
-  else
-    Self.Close;
-end;
 
 procedure TViewVendas.CancelarVenda;
 begin
@@ -313,12 +334,15 @@ begin
   then
     Exit;
 
+  if ModelConexaoDM.MyConnection1.InTransaction then
+    ModelConexaoDM.MyConnection1.Rollback;
   FVDM.QVendasCadastro.Cancel;
   Self.LimparTela;
 end;
 
 procedure TViewVendas.DSVendasItensListarDataChange(Sender: TObject;
   Field: TField);
+
 
 var
   LFIleImg : string;
@@ -344,6 +368,15 @@ begin
   end;
 
   IMGFoto.Picture.LoadFromFile(LFIleImg);
+end;
+
+procedure TViewVendas.DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  if(not Odd(DBGrid1.DataSource.DataSet.RecNo))then
+    DBGrid1.Canvas.Brush.Color := $00D6D6D6;
+
+  DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
 end.

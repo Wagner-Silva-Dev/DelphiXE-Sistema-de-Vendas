@@ -44,6 +44,7 @@ type
     Label1: TLabel;
     Label2: TLabel;
     IWDataModulePool1: TIWDataModulePool;
+    N2: TMenuItem;
     procedure lbyoutubeClick(Sender: TObject);
     procedure lbyoutubeMouseEnter(Sender: TObject);
     procedure lbyoutubeMouseLeave(Sender: TObject);

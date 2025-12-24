@@ -14,6 +14,7 @@ object ViewVendas: TViewVendas
   KeyPreview = True
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnKeyDown = FormKeyDown

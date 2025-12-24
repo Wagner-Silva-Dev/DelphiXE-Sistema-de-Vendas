@@ -609,6 +609,9 @@ object ViewPrincipal: TViewPrincipal
         Caption = 'Vendas'
         OnClick = Vendas1Click
       end
+      object N2: TMenuItem
+        Caption = '-'
+      end
     end
     object Financeiro1: TMenuItem
       Caption = 'Financeiro'
