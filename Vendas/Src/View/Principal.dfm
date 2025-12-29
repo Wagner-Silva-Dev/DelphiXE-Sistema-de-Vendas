@@ -369,7 +369,7 @@ object ViewPrincipal: TViewPrincipal
         Align = alTop
         Anchors = [akLeft, akRight]
         AutoSize = False
-        Caption = 'https://www.udemy.com'
+        Caption = 'https://github.com/Wagner-Silva-Dev'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -382,7 +382,6 @@ object ViewPrincipal: TViewPrincipal
         OnMouseLeave = lbyoutubeMouseLeave
         ExplicitLeft = 6
         ExplicitTop = 44
-        ExplicitWidth = 531
       end
       object Label2: TLabel
         Left = 5
@@ -392,9 +391,7 @@ object ViewPrincipal: TViewPrincipal
         Align = alTop
         Anchors = [akLeft, akRight]
         AutoSize = False
-        Caption = 
-          'https://www.youtube.com/watch?v=oMmVj-aoXgc&list=PLLHSz4dOnnN3B4' +
-          'Bpizs8Z1REGTIUiMg8T'
+        Caption = 'https://www.youtube.com/@code4delphi'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12

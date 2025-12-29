@@ -79,3 +79,11 @@ __recovery/
 
 # Boss dependency manager vendor folder https://github.com/HashLoad/boss
 modules/
+
+# Delphi build folders
+Win32/Debug/
+Win32/Release/
+Win64/Debug/
+Win64/Release/
+bin/
+

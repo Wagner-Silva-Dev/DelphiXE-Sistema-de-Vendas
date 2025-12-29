@@ -4,7 +4,6 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 826
-  ExplicitHeight = 565
   PixelsPerInch = 96
   TextHeight = 13
   inherited Pntopo: TPanel
@@ -14,8 +13,8 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
       Width = 806
     end
     inherited EditBuscar: TEdit
-      Width = 692
-      ExplicitWidth = 692
+      Width = 688
+      ExplicitWidth = 688
     end
   end
   inherited Pnrodape: TPanel
@@ -34,7 +33,7 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
     inherited BtnCadastrar: TBitBtn
       Left = 405
       ExplicitLeft = 405
-      ExplicitTop = 8
+      ExplicitTop = 10
     end
     inherited BtnUtilizar: TBitBtn
       Left = 607
@@ -127,7 +126,6 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
       ExplicitWidth = 810
       inherited LbTotal: TLabel
         Left = 654
-        Height = 19
         ExplicitLeft = 654
       end
     end
