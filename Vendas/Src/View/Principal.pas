@@ -40,11 +40,9 @@ type
     Panel4: TPanel;
     Image1: TImage;
     panel5: TPanel;
-    lbyoutube: TLabel;
     Label1: TLabel;
     Label2: TLabel;
     IWDataModulePool1: TIWDataModulePool;
-    N2: TMenuItem;
     procedure lbyoutubeClick(Sender: TObject);
     procedure lbyoutubeMouseEnter(Sender: TObject);
     procedure lbyoutubeMouseLeave(Sender: TObject);
@@ -54,6 +52,10 @@ type
     procedure Subgruposdeprodutos1Click(Sender: TObject);
     procedure Produtos1Click(Sender: TObject);
     procedure Vendas1Click(Sender: TObject);
+    procedure ContasaReceber1Click(Sender: TObject);
+    procedure Empresas1Click(Sender: TObject);
+    procedure Configuraes1Click(Sender: TObject);
+    procedure NFCe1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,6 +77,21 @@ uses
   View.Vendas;
 
 
+procedure TViewPrincipal.Configuraes1Click(Sender: TObject);
+begin
+  ShowMessage('Em Desenvolvimento!');
+end;
+
+procedure TViewPrincipal.ContasaReceber1Click(Sender: TObject);
+begin
+  ShowMessage('Em Desenvolvimento!');
+end;
+
+procedure TViewPrincipal.Empresas1Click(Sender: TObject);
+begin
+  ShowMessage('Em Desenvolvimento!');
+end;
+
 procedure TViewPrincipal.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
@@ -93,6 +110,11 @@ end;
 procedure TViewPrincipal.lbyoutubeMouseLeave(Sender: TObject);
 begin
   TLabel(Sender).Font.Color := clWindowText;
+end;
+
+procedure TViewPrincipal.NFCe1Click(Sender: TObject);
+begin
+  ShowMessage('Em Desenvolvimento!');
 end;
 
 procedure TViewPrincipal.Cidades1Click(Sender: TObject);
