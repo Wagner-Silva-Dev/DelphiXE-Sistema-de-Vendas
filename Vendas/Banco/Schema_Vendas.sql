@@ -1,0 +1,123 @@
+CREATE DATABASE IF NOT EXISTS mini_ec
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE mini_ec;
+
+CREATE TABLE IF NOT EXISTS subgrupos (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  Nome varchar(50) DEFAULT NULL,
+  PRIMARY KEY (ID)
+)
+ENGINE = INNODB
+AUTO_INCREMENT = 1
+AVG_ROW_LENGTH = 8192
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS unidade_federal (
+  cod_uf int(11) NOT NULL AUTO_INCREMENT,
+  uf char(2) NOT NULL,
+  nome_uf varchar(50) NOT NULL,
+  PRIMARY KEY (cod_uf)
+)
+ENGINE = INNODB
+AUTO_INCREMENT = 1
+AVG_ROW_LENGTH = 564
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS pessoas (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  nome varchar(60) NOT NULL,
+  fantasia varchar(60) DEFAULT NULL,
+  cliente char(1) DEFAULT NULL,
+  fornecedor char(1) DEFAULT NULL,
+  cep varchar(10) DEFAULT NULL,
+  cod_uf int(11) NOT NULL,
+  endereco varchar(60) DEFAULT NULL,
+  numero varchar(20) DEFAULT NULL,
+  bairro varchar(40) DEFAULT NULL,
+  complemento varchar(40) DEFAULT NULL,
+  telefone varchar(15) DEFAULT NULL,
+  celular varchar(15) DEFAULT NULL,
+  email varchar(50) DEFAULT NULL,
+  tipo_juridico int(11) DEFAULT 1,
+  CPF varchar(14) DEFAULT NULL,
+  RG varchar(14) DEFAULT NULL,
+  CNPJ varchar(18) DEFAULT NULL,
+  Insc_Estadual varchar(14) DEFAULT NULL,
+  ativo char(1) DEFAULT 'S',
+  nascimento date DEFAULT NULL,
+  dh_cadastro timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (ID),
+  CONSTRAINT FK_pessoas_IDCidade FOREIGN KEY (cod_uf)
+  REFERENCES unidade_federal (cod_uf) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
+ENGINE = INNODB
+AUTO_INCREMENT = 1
+AVG_ROW_LENGTH = 2340
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS produtosof (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  ID_Subgrupo int(11) NOT NULL,
+  nome varchar(100) DEFAULT NULL,
+  Descricao varchar(150) DEFAULT NULL,
+  preco_custo decimal(15, 2) DEFAULT NULL,
+  porcentagem decimal(15, 2) DEFAULT NULL,
+  preco_venda decimal(15, 2) DEFAULT NULL,
+  unidade varchar(20) DEFAULT NULL,
+  codigo_barras varchar(20) DEFAULT NULL,
+  Imagem varchar(200) DEFAULT NULL,
+  PRIMARY KEY (ID),
+  CONSTRAINT FK_PRODUTOS_ID_SUBGRUPOS FOREIGN KEY (ID_Subgrupo)
+  REFERENCES subgrupos (ID) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
+ENGINE = INNODB
+AUTO_INCREMENT = 1
+AVG_ROW_LENGTH = 963
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS vendas (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  ID_Pessoa int(11) NOT NULL,
+  DATA date NOT NULL,
+  Hora time NOT NULL,
+  Total_Bruto decimal(15, 2) DEFAULT 0.00,
+  Total_Descontos decimal(15, 2) DEFAULT 0.00,
+  Total_Acrescimos decimal(15, 2) DEFAULT 0.00,
+  Total_Liquido decimal(15, 2) DEFAULT 0.00,
+  PRIMARY KEY (ID),
+  CONSTRAINT FK_Vendas_Pessoas FOREIGN KEY (ID_Pessoa)
+  REFERENCES pessoas (ID) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
+ENGINE = INNODB
+AUTO_INCREMENT = 1
+AVG_ROW_LENGTH = 5461
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS vendas_itens (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  ID_Venda int(11) NOT NULL,
+  ID_Produto int(11) NOT NULL,
+  quantidade decimal(15, 2) DEFAULT 0.00,
+  valor_unitario decimal(15, 2) DEFAULT 0.00,
+  desconto decimal(15, 2) DEFAULT 0.00,
+  acrescimo decimal(15, 2) DEFAULT 0.00,
+  total_liquido decimal(15, 2) DEFAULT 0.00,
+  Total_Bruto decimal(15, 2) DEFAULT 0.00,
+  PRIMARY KEY (ID),
+  CONSTRAINT FK_vendas_itens_ID_Produto FOREIGN KEY (ID_Produto)
+  REFERENCES produtosof (ID) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT FK_vendas_Itens_ID_Vendas FOREIGN KEY (ID_Venda)
+  REFERENCES vendas (ID) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
+ENGINE = INNODB
+AUTO_INCREMENT = 1
+AVG_ROW_LENGTH = 260
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
