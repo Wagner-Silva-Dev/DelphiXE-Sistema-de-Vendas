@@ -78,9 +78,6 @@ begin
 
   QCidadesCadastronome_uf.AsString := ANome;
   QCidadesCadastrouf.AsString := AUF;
-
-  //ValidarDadosQCadastro; Caso queira só uma função na View
-
   QCidadesCadastro.Post;
 end;
 

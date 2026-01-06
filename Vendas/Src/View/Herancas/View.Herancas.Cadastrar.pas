@@ -27,7 +27,6 @@ type
     BtnGravar: TBitBtn;
     MyDataSource1: TMyDataSource;
     procedure BtnCancelarClick(Sender: TObject);
-    procedure BtnGravarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
@@ -53,15 +52,8 @@ begin
   begin
     MyDataSource1.DataSet.Cancel;
   end;
-//    Self.Close;
-    Self.ModalResult := mrCancel;
-end;
 
-procedure TViewHerencasCadastrar.BtnGravarClick(Sender: TObject);
-begin
-//  FUltID := MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger;
-//  self.close;
-//  Self.ModalResult := mrOk;
+    Self.ModalResult := mrCancel;
 end;
 
 procedure TViewHerencasCadastrar.FormCreate(Sender: TObject);

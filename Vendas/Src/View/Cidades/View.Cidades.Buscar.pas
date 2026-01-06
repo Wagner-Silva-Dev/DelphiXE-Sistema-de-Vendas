@@ -28,7 +28,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure BtnCadastrarClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
   private
     FUltID: integer;
 
@@ -108,12 +107,6 @@ procedure TViewCidadesBuscar.FormDestroy(Sender: TObject);
 begin
   inherited;
   FreeAndNil(ModelCidadesDM);
-end;
-
-procedure TViewCidadesBuscar.FormShow(Sender: TObject);
-begin
-  inherited;
-//  FIDSelecionado := 0;
 end;
 
 end.

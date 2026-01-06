@@ -16,8 +16,8 @@ inherited ViewProdutosBuscar: TViewProdutosBuscar
       Width = 776
     end
     inherited EditBuscar: TEdit
-      Width = 622
-      ExplicitWidth = 622
+      Width = 618
+      ExplicitWidth = 618
     end
   end
   inherited Pnrodape: TPanel
@@ -83,11 +83,13 @@ inherited ViewProdutosBuscar: TViewProdutosBuscar
         item
           Expanded = False
           FieldName = 'porcentagem'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'preco_venda'
+          Width = 64
           Visible = True
         end
         item
@@ -99,16 +101,19 @@ inherited ViewProdutosBuscar: TViewProdutosBuscar
         item
           Expanded = False
           FieldName = 'codigo_barras'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'SubGrupoNOME'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'ID_Subgrupo'
+          Width = 64
           Visible = True
         end>
     end
@@ -119,6 +124,7 @@ inherited ViewProdutosBuscar: TViewProdutosBuscar
       ExplicitWidth = 780
       inherited LbTotal: TLabel
         Left = 624
+        Height = 19
         ExplicitLeft = 624
       end
     end

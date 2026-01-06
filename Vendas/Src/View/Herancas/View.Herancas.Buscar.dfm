@@ -44,7 +44,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
     object EditBuscar: TEdit
       Left = 16
       Top = 19
-      Width = 776
+      Width = 772
       Height = 21
       Anchors = [akLeft, akTop, akRight]
       TabOrder = 0
@@ -357,7 +357,6 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       ParentDoubleBuffered = False
       TabOrder = 4
       OnClick = BtnAlterarClick
-      ExplicitTop = 10
     end
   end
   object PnGrid: TPanel

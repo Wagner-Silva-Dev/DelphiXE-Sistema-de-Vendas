@@ -74,19 +74,11 @@ procedure TViewHerencasCidadesCadastrar.BtnGravarClick(Sender: TObject);
 begin
 
     try
-      {MyDataSource1.DataSet.Post;
-     O TDComboBox aparece a mensagem que sempre esta vazio por isso usei o de baixo}
-
       ModelCidadesDM.GravarCidade(EdtNome.Text, CboxUF.Text);
       ModelCidadesDM.ValidarDadosQCadastro;
     except
       on E: ExceptionsFieldName do
       TUtils.TratarExceptionsFieldName(Self, E);
-      //Testando a mensagem de erro
-      {begin
-        ShowMessage('Erro: ' + E.Message + sLineBreak + 'FieldName: ' + E.FieldName);
-        Exit;
-      end;}
     end;
 
   FUltID := MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger;

@@ -5,17 +5,11 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
   PixelsPerInch = 96
   TextHeight = 13
   inherited Pntopo: TPanel
-    inherited Label1: TLabel
-      ExplicitLeft = -1
-      ExplicitTop = -2
-      ExplicitWidth = 813
-      ExplicitHeight = 57
-    end
     inherited EditBuscar: TEdit
       Left = -1
-      Width = 726
+      Width = 722
       ExplicitLeft = -1
-      ExplicitWidth = 726
+      ExplicitWidth = 722
     end
   end
   inherited Pnrodape: TPanel
@@ -48,6 +42,11 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
           Width = 180
           Visible = True
         end>
+    end
+    inherited PnTotal: TPanel
+      inherited LbTotal: TLabel
+        Height = 19
+      end
     end
   end
   inherited MyDataSource1: TMyDataSource

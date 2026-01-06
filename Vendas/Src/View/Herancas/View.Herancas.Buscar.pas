@@ -61,9 +61,8 @@ type
     procedure BtnCadastrarClick(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
   private
-{essas variaveis  abaixo foram pq como é uma tela de cadastro e eu fiz com diversos tipos de
-campos de pesquisa não apenas 'ID' o que me fez fazer em cada tela, depois tenho fazer um função
-para automatizar}
+{essas variaveis  abaixo foram pq como é uma tela de cadastro e eu fiz com diversos tipos de campos de pesquisa não apenas
+'ID' o que me fez fazer em cada tela, depois tenho fazer um função para automatizar}
     FUltID: integer;
     FIDSelecionado: Integer;
 
@@ -113,9 +112,6 @@ end;
 
 procedure TViewHerancasBuscar.BtnCadastrarClick(Sender: TObject);
 begin
-//  FUltID := 0;
-//  if (not MyDataSource1.DataSet.IsEmpty) then
-//    FUltID := MyDataSource1.DataSet.FieldByName('cod_uf').AsInteger;
   Self.ChamarTelaCadastrar;
 end;
 
@@ -154,7 +150,7 @@ procedure TViewHerancasBuscar.BuscarDados;
 
 var
   Campo: TField;
-  NomeCampo: string;
+  IDCampo: string;
 Begin
   LbTotal.Caption := 'Registros Localizados: 000000';
   if (MyDataSource1.DataSet.IsEmpty) then
@@ -165,15 +161,13 @@ Begin
   Campo := MyDataSource1.DataSet.FindField('cod_uf');
 
   if Campo <> nil then
-    NomeCampo := 'cod_uf'
+    IDCampo := 'cod_uf'
   else
-    NomeCampo := 'ID';
+    IDCampo := 'ID';
 
   if FUltID > 0 then
-    MyDataSource1.DataSet.Locate(NomeCampo, FUltID, []);
+    MyDataSource1.DataSet.Locate(IDCampo, FUltID, []);
 
-//  if (FUltID > 0) then
-//    MyDataSource1.DataSet.Locate('cod_uf', FUltID, []);
 End;
 
 procedure TViewHerancasBuscar.DBGrid1DblClick(Sender: TObject);

@@ -1,7 +1,7 @@
 object ModelPessoasDM: TModelPessoasDM
   OldCreateOrder = False
-  Height = 225
-  Width = 301
+  Height = 114
+  Width = 270
   object QPessoasCadastro: TMyQuery
     Connection = ModelConexaoDM.MyConnection1
     SQL.Strings = (

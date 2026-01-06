@@ -158,7 +158,6 @@ object ViewHerencasCadastrar: TViewHerencasCadastrar
         00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
       ParentDoubleBuffered = False
       TabOrder = 1
-      OnClick = BtnGravarClick
     end
   end
   object PnDados: TPanel
