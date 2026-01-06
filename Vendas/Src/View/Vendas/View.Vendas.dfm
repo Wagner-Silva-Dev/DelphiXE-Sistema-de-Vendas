@@ -2397,8 +2397,8 @@ object ViewVendas: TViewVendas
   end
   object DSVendasCadastrar: TMyDataSource
     DataSet = ModelVendasDM.QVendasCadastro
-    Left = 448
-    Top = 480
+    Left = 472
+    Top = 512
   end
   object DSVendasItensListar: TMyDataSource
     DataSet = ModelVendasDM.QVendasItensListar

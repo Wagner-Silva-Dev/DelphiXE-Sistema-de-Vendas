@@ -159,6 +159,8 @@ begin
     begin
       if (ssAlt in Shift) then
         Key := 0;
+      if FVDM.QVendasCadastro.State in dsEditModes then
+        Self.CancelarVenda
     end;
     VK_ESCAPE:
       Self.ProcessarESC;
@@ -178,7 +180,6 @@ begin
      end;
   end;
 end;
-
 
 
 procedure TViewVendas.ProcessarF2;
@@ -308,8 +309,6 @@ begin
   FVDM.QVendasCadastroTotal_Descontos.AsFloat := FVDM.QVendasTotalizarTotalDesconto.AsFloat;
   FVDM.QVendasCadastroTotal_Acrescimos.AsFloat := FVDM.QVendasTotalizarTotalAcrescimo.AsFloat;
   FVDM.QVendasCadastroTotal_Liquido.AsFloat := FVDM.QVendasTotalizarTotalLiquido.AsFloat;
-//  FVDM.QVendasCadastro.Post;
-//  FVDM.QVendasCadastro.Edit;
 end;
 
 procedure TViewVendas.LimparTela;
@@ -330,7 +329,7 @@ end;
 procedure TViewVendas.CancelarVenda;
 begin
   if(Application.MessageBox('Confirma Cancelamento desta Venda?', 'Confirmação',
-    MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) <> IDYES)
+    MB_YESNO  + MB_ICONQUESTION + MB_DEFBUTTON2) <> IDYES)
   then
     Exit;
 

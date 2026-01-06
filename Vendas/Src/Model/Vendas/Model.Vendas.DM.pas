@@ -54,7 +54,6 @@ type
     QVendasItensListarImagem: TStringField;
     procedure QVendasCadastroAfterInsert(DataSet: TDataSet);
     procedure QVendasItensCadastrarAfterInsert(DataSet: TDataSet);
-    procedure QVendasCadastroBeforePost(DataSet: TDataSet);
   private
 
   public
@@ -114,12 +113,6 @@ begin
   QVendasCadastroTotal_Acrescimos.AsFloat := 0;
   QVendasCadastroTotal_Liquido.AsFloat := 0;
 end;
-
-procedure TModelVendasDM.QVendasCadastroBeforePost(DataSet: TDataSet);
-begin
-//
-end;
-
 
 procedure TModelVendasDM.QVendasItensCadastrarAfterInsert(DataSet: TDataSet);
 begin

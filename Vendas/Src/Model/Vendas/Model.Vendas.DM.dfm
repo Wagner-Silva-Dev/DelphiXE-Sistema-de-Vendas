@@ -8,7 +8,6 @@ object ModelVendasDM: TModelVendasDM
       'SELECT * FROM vendas v'
       '  WHERE v.ID = :IDVENDA')
     AfterInsert = QVendasCadastroAfterInsert
-    BeforePost = QVendasCadastroBeforePost
     Left = 40
     Top = 32
     ParamData = <
@@ -112,44 +111,56 @@ object ModelVendasDM: TModelVendasDM
         Name = 'IDVENDA'
       end>
     object QVendasItensListarID: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'ID'
+      Origin = 'vi.ID'
     end
     object QVendasItensListarID_Venda: TIntegerField
       FieldName = 'ID_Venda'
+      Origin = 'vi.ID_Venda'
     end
     object QVendasItensListarID_Produto: TIntegerField
       FieldName = 'ID_Produto'
+      Origin = 'vi.ID_Produto'
     end
     object QVendasItensListarquantidade: TFloatField
       FieldName = 'quantidade'
+      Origin = 'vi.quantidade'
       DisplayFormat = ',,0.00'
     end
     object QVendasItensListarvalor_unitario: TFloatField
       FieldName = 'valor_unitario'
+      Origin = 'vi.valor_unitario'
       DisplayFormat = ',,0.00'
     end
     object QVendasItensListardesconto: TFloatField
       FieldName = 'desconto'
+      Origin = 'vi.desconto'
       DisplayFormat = ',,0.00'
     end
     object QVendasItensListaracrescimo: TFloatField
       FieldName = 'acrescimo'
+      Origin = 'vi.acrescimo'
       DisplayFormat = ',,0.00'
     end
     object QVendasItensListartotal_liquido: TFloatField
       FieldName = 'total_liquido'
+      Origin = 'vi.total_liquido'
       DisplayFormat = ',,0.00'
     end
     object QVendasItensListarProdutoNome: TStringField
       FieldName = 'ProdutoNome'
+      Origin = 'p.nome'
       Size = 100
     end
     object QVendasItensListarTotal_Bruto: TFloatField
       FieldName = 'Total_Bruto'
+      Origin = 'vi.Total_Bruto'
       DisplayFormat = ',,0.00'
     end
     object QVendasItensListarImagem: TStringField
       FieldName = 'Imagem'
+      Origin = 'p.Imagem'
       Size = 200
     end
   end
