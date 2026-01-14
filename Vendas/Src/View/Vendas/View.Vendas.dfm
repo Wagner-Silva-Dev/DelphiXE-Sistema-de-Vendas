@@ -2403,12 +2403,12 @@ object ViewVendas: TViewVendas
   object DSVendasItensListar: TMyDataSource
     DataSet = ModelVendasDM.QVendasItensListar
     OnDataChange = DSVendasItensListarDataChange
-    Left = 568
-    Top = 176
+    Left = 624
+    Top = 256
   end
   object DSVendasItensCadastrar: TMyDataSource
     DataSet = ModelVendasDM.QVendasItensCadastrar
     Left = 240
-    Top = 328
+    Top = 272
   end
 end

@@ -1,7 +1,7 @@
 object ModelVendasDM: TModelVendasDM
   OldCreateOrder = False
-  Height = 170
-  Width = 274
+  Height = 282
+  Width = 433
   object QVendasCadastro: TMyQuery
     Connection = ModelConexaoDM.MyConnection1
     SQL.Strings = (

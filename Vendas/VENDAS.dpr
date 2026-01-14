@@ -22,7 +22,9 @@ uses
   View.Produtos.Buscar in 'Src\View\Produtos\View.Produtos.Buscar.pas' {ViewProdutosBuscar},
   View.Produtos.Cadastrar in 'Src\View\Produtos\View.Produtos.Cadastrar.pas' {ViewProdutosCadastrar},
   View.Vendas in 'Src\View\Vendas\View.Vendas.pas' {ViewVendas},
-  Model.Vendas.DM in 'Src\Model\Vendas\Model.Vendas.DM.pas' {ModelVendasDM: TDataModule};
+  Model.Vendas.DM in 'Src\Model\Vendas\Model.Vendas.DM.pas' {ModelVendasDM: TDataModule},
+  Model.ContasReceber.DM in 'Src\Model\Contas a Receber\Model.ContasReceber.DM.pas' {ModelContasReceberDM: TDataModule},
+  View.ContasReceber.Buscar in 'Src\View\Contas a Receber\View.ContasReceber.Buscar.pas' {ViewContasReceberBuscar};
 
 {$R *.res}
 

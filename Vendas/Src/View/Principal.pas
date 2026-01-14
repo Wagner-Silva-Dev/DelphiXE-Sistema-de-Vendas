@@ -74,15 +74,11 @@ uses
   View.Pessoas.Buscar,
   View.SubGrupos.Buscar,
   View.Produtos.Buscar,
-  View.Vendas;
+  View.Vendas,
+  View.ContasReceber.Buscar;
 
 
 procedure TViewPrincipal.Configuraes1Click(Sender: TObject);
-begin
-  ShowMessage('Em Desenvolvimento!');
-end;
-
-procedure TViewPrincipal.ContasaReceber1Click(Sender: TObject);
 begin
   ShowMessage('Em Desenvolvimento!');
 end;
@@ -166,6 +162,16 @@ begin
     ViewVendas.ShowModal;
   finally
     FreeAndNil(ViewVendas);
+  end;
+end;
+
+procedure TViewPrincipal.ContasaReceber1Click(Sender: TObject);
+begin
+  ViewContasReceberBuscar:= TViewContasReceberBuscar.Create(nil);
+  try
+    ViewContasReceberBuscar.ShowModal;
+  finally
+    FreeAndNil(ViewContasReceberBuscar);
   end;
 end;
 

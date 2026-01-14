@@ -83,6 +83,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     FVDM : TModelVendasDM;
+    FUltID: integer;
     procedure ProcessarF2;
     procedure LimparTela;
     procedure ImagemPadrao;
@@ -95,8 +96,9 @@ type
     procedure DeletarItemSelecionado;
     procedure DeletarVendaAtual;
 
+
   public
-    { Public declarations }
+    property UltID: integer read FUltID write FUltID;
   end;
 
 var
@@ -105,7 +107,6 @@ var
 implementation
 
 {$R *.dfm}
-
 
 
 procedure TViewVendas.EDTLancamentoKeyPress(Sender: TObject; var Key: Char);
@@ -181,7 +182,6 @@ begin
   end;
 end;
 
-
 procedure TViewVendas.ProcessarF2;
 begin
     if (FVDM.QVendasCadastro.State in dsEditModes) then
@@ -241,7 +241,7 @@ begin
     Exit;
 
   FVDM.QVendasItensListar.Delete;
-  Self.TotalizarVenda
+  Self.TotalizarVenda;
 
 end;
 
@@ -341,8 +341,6 @@ end;
 
 procedure TViewVendas.DSVendasItensListarDataChange(Sender: TObject;
   Field: TField);
-
-
 var
   LFIleImg : string;
 begin

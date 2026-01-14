@@ -13,8 +13,8 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
       Width = 806
     end
     inherited EditBuscar: TEdit
-      Width = 688
-      ExplicitWidth = 688
+      Width = 684
+      ExplicitWidth = 684
     end
   end
   inherited Pnrodape: TPanel
@@ -33,7 +33,6 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
     inherited BtnCadastrar: TBitBtn
       Left = 405
       ExplicitLeft = 405
-      ExplicitTop = 10
     end
     inherited BtnUtilizar: TBitBtn
       Left = 607
@@ -81,19 +80,16 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
         item
           Expanded = False
           FieldName = 'fornecedor'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'cod_uf'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'nome_uf'
-          Width = 64
           Visible = True
         end
         item
@@ -105,19 +101,16 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
         item
           Expanded = False
           FieldName = 'endereco'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'telefone'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'celular'
-          Width = 64
           Visible = True
         end>
     end

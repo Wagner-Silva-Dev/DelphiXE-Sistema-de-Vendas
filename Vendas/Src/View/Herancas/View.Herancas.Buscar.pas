@@ -147,7 +147,6 @@ begin
 end;
 
 procedure TViewHerancasBuscar.BuscarDados;
-
 var
   Campo: TField;
   IDCampo: string;

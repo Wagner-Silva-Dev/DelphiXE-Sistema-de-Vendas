@@ -2,14 +2,16 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
   Caption = 'Cidades Buscar'
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  ExplicitWidth = 833
+  ExplicitHeight = 565
   PixelsPerInch = 96
   TextHeight = 13
   inherited Pntopo: TPanel
     inherited EditBuscar: TEdit
       Left = -1
-      Width = 722
+      Width = 714
       ExplicitLeft = -1
-      ExplicitWidth = 722
+      ExplicitWidth = 714
     end
   end
   inherited Pnrodape: TPanel
@@ -51,8 +53,8 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
   end
   inherited MyDataSource1: TMyDataSource
     DataSet = ModelCidadesDM.QCidadesBusca
-    Left = 32
-    Top = 104
+    Left = 288
+    Top = 112
   end
   inherited PopupMenu1: TPopupMenu
     Left = 128

@@ -36,7 +36,6 @@ object ViewPrincipal: TViewPrincipal
       Anchors = [akLeft, akBottom]
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 105
       object Image1: TImage
         Left = 0
         Top = 0
@@ -34651,7 +34650,6 @@ object ViewPrincipal: TViewPrincipal
       BevelOuter = bvNone
       Padding.Left = 5
       TabOrder = 1
-      ExplicitHeight = 241
       object Label1: TLabel
         Left = 5
         Top = 50
